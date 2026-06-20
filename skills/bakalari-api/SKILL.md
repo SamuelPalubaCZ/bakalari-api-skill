@@ -270,6 +270,8 @@ The API is organized into modules. Each module provides specific functionality:
 |--------|---------|------------------|
 | **User** | User profile and permissions | `/api/3/user` |
 | **Marks** | Grades and evaluations | `/api/3/marks` |
+| **Final Marks** | Report cards and final grades | `/api/3/marks/final` |
+| **Marks Measures** | Disciplinary measures and commendations | `/api/3/marks/measures` |
 | **Timetable** | Schedule and lessons | `/api/3/timetable/*` |
 | **Homeworks** | Assignments and tasks | `/api/3/homeworks` |
 | **Events** | School events calendar | `/api/3/events/*` |
@@ -277,6 +279,9 @@ The API is organized into modules. Each module provides specific functionality:
 | **Absence** | Attendance records | `/api/3/absence/*` |
 | **Subjects** | Subject catalog | `/api/3/subjects` |
 | **Substitutions** | Schedule changes | `/api/3/substitutions` |
+| **Payments** | Class fund management | `/api/3/payments/*` |
+| **GDPR** | Data protection information | `/api/3/gdpr/*` |
+| **Campaign** | School announcements and ads | External service |
 
 ### Module Availability
 
@@ -303,8 +308,10 @@ Not all modules are enabled for every school or user. Check the user endpoint to
 
 ### Grades
 - `GET /api/3/marks` - All grades and evaluations
-- `GET /api/3/marks/what-if` - Grade prediction calculator
-- `GET /api/3/marks/final` - Final semester grades
+- `POST /api/3/marks/what-if` - Grade prediction calculator
+- `GET /api/3/marks/final` - Historical report cards
+- `GET /api/3/marks/measures` - Disciplinary measures and commendations
+- `POST /api/3/marks/SetClassificationConfirmation` - Confirm/sign grades
 
 ### Timetable
 - `GET /api/3/timetable/actual` - Current week timetable
@@ -330,6 +337,13 @@ Not all modules are enabled for every school or user. Check the user endpoint to
 
 ### Changes
 - `GET /api/3/substitutions` - Teacher and room substitutions
+
+### Additional
+- `GET /api/3/user/student-at-school` - Student presence status
+- `GET /api/3/payments/classfund/summary` - Class fund balance
+- `GET /api/3/payments/classfund` - Payment history
+- `GET /api/3/gdpr/commissioners` - GDPR contacts
+- `GET /api` - Available API versions
 
 ## Best Practices
 

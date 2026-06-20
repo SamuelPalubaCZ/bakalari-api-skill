@@ -95,15 +95,38 @@ Returns final semester grades.
 
 ### What-If Calculator
 ```
-GET /api/3/marks/what-if
+POST /api/3/marks/what-if
 ```
 
 Grade prediction calculator for "what-if" scenarios.
 
 **Authentication**: Required
+**Content-Type**: `application/json; charset=utf-8`
 
-**Query Parameters**:
-- Various prediction parameters (module-specific)
+**Body**: Array of grade objects (existing + hypothetical with `Id: null`)
+
+### Marks Measures
+```
+GET /api/3/marks/measures
+```
+
+Returns disciplinary measures and commendations (pedagogical measures).
+
+**Authentication**: Required
+
+**Response**: Array of disciplinary records and commendations
+
+### Marks Confirmation
+```
+POST /api/3/marks/SetClassificationConfirmation
+```
+
+Confirms/signs selected grades.
+
+**Authentication**: Required
+**Content-Type**: `application/json`
+
+**Body**: Array of grade IDs to confirm
 
 ---
 
@@ -314,26 +337,83 @@ Returns teacher substitutions and schedule changes.
 
 ## Additional Modules
 
-### Payments
+### Student At School
 ```
-GET /api/3/payments
+GET /api/3/user/student-at-school
 ```
 
-Class fund payment tracking (if enabled).
+Returns whether student is currently present at school (access control system).
+
+**Authentication**: Required
+**Response**: Boolean (true/false)
+
+### Payments - Class Fund
+```
+GET /api/3/payments/classfund/summary
+```
+
+Returns class fund balance and status.
+
+**Authentication**: Required
+
+```
+GET /api/3/payments/classfund
+```
+
+Returns payment history grouped by month.
+
+**Authentication**: Required
+
+**Query Parameters**:
+- `sort` (optional): `asc` or `desc`
+- `search` (optional): Search string
+
+```
+GET /api/3/payments/classfund/paymentsinfo
+```
+
+Returns payment information for adding funds.
+
+**Authentication**: Required
 
 ### GDPR
 ```
-GET /api/3/gdpr
+GET /api/3/gdpr/commissioners
 ```
 
-GDPR consents and commissioner information.
+Returns GDPR/data protection commissioner information.
 
-### Settings
+**Authentication**: Required
+
+### API Info
 ```
-GET /api/3/settings
+GET /api
 ```
 
-User and application settings.
+Returns all available API versions.
+
+**Authentication**: Not required
+
+```
+GET /api/3
+```
+
+Returns API version 3 information.
+
+**Authentication**: Not required
+
+### Campaign (Information Channel)
+```
+GET https://campaign.bakalari.cz/bannerinfo/{Location}/{CampaignCategoryCode}
+```
+
+Returns campaign banners and announcements.
+
+**Authentication**: Not required
+
+**Parameters**:
+- `Location`: `mobileapp`, `LargeBanner`, or `SmallBannersPanel`
+- `CampaignCategoryCode`: From `/api/3/user` response
 
 ---
 
