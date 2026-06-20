@@ -37,7 +37,7 @@ This skill teaches Claude how to:
 
 1. Clone this repository to your local skills directory:
    ```bash
-   git clone https://github.com/yourusername/bakalari-api.git ~/.claude/skills/bakalari-api
+   git clone https://github.com/SamuelPalubaCZ/bakalari-api-skill.git ~/.claude/skills/bakalari-api
    ```
 
 2. The skill will be automatically available when you mention Bakalari integration.
