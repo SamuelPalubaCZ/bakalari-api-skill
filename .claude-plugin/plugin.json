@@ -1,0 +1,12 @@
+{
+  "name": "bakalari-api",
+  "version": "1.0.0",
+  "description": "Claude skill for the Bakalari API v3 - enables easy integration with the Czech school information system. This universal skill provides comprehensive API documentation for building applications that connect to the Bakaláři OnLine platform.",
+  "author": {
+    "name": "bakalari-api-community"
+  },
+  "homepage": "https://github.com/bakalari-api/bakalari-api-skill",
+  "repository": "https://github.com/bakalari-api/bakalari-api-skill",
+  "category": "development",
+  "keywords": ["api", "bakalari", "bakalari-api", "education", "czech", "school", "api-v3", "bakalari-online"]
+}
